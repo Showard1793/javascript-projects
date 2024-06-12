@@ -19,7 +19,7 @@ let fuelLevel = "100%";
 let weatherStatus = "clear";
 let preparedForLiftOff = true;
 
-//Checking if conditionas are met for a succesful launch and giving user feedback
+//Checking if conditions are met for a succesful launch and giving user feedback
 if ((astronautCount <= 7) && 
    (astronautStatus === "ready") && 
    (totalMassKg < maximumMassLimit) &&
@@ -102,7 +102,7 @@ if ((astronautCount <= 7) &&
     console.log("Have a safe trip!");
    } else console.log("DO NOT LAUNCH!!!");
 
-   
+
 // Initialize Variables below
 
 // add logic below to verify total number of astronauts for shuttle launch does not exceed 7
