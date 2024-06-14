@@ -1,111 +1,109 @@
-// Declare and initialize the variables for exercise 1 here:
+//PART 1
 
-let date = "Monday 2019-03-18";
-let time = "10:05:34 AM";
-let astronautCount = 7;
-let astronautStatus = "ready";
-let averageAstronautMassKg = 80.7;
-let crewMassKg = astronautCount * averageAstronautMassKg;
-let fuelMassKg = 760000;  
-let shuttleMassKg = 74842.31;
-let totalMassKg = crewMassKg + fuelMassKg + shuttleMassKg;
-let maximumMassLimit = 850000;
-let fuelTempCelsius = -225;
-let minimumFuelTemp = -300;
-let maximumFuelTemp = -150;
-let fuelLevel = "100%";
-let weatherStatus = "clear";
-let preparedForLiftOff = true;
+let engineIndicatorLight = "red blinking";
+let spaceSuitsOn = true;
+let shuttleCabinReady = true;
+let crewStatus = spaceSuitsOn && shuttleCabinReady;
+let computerStatusCode = 200;
+let shuttleSpeed = 15000;
+let commandOverride = false;
 
-//Checking if conditionas are met for a succesful launch and giving user feedback
-if ((astronautCount <= 7) && 
-   (astronautStatus === "ready") && 
-   (totalMassKg < maximumMassLimit) &&
-   (fuelTempCelsius <= -150) && 
-   (fuelTempCelsius >= -300) &&
-   (fuelLevel == "100%") && 
-   (weatherStatus === "clear")){
-    console.log("All systems are a go! Initiating space shuttle launch sequence.");}
-    else {
-      console.log("WARNING! DO NOT LAUNCH!")
-    }
+//PART 2 -PREDICTION: "engines are off" will be logged to the console
 
-//Printing line after feedback
-
-console.log("-------------------------------------------------------------------------");
-
-// Logging the conditions
-console.log("Date:", date);
-console.log("Time:", time);
-console.log("Astronaut Count:", astronautCount);
-console.log("Astronaut Status:", astronautStatus);
-console.log("Average Astronaut Mass (kg):", averageAstronautMassKg);
-console.log("Crew Mass (kg):", crewMassKg);
-console.log("Fuel Mass (kg):", fuelMassKg);
-console.log("Shuttle Mass (kg):", shuttleMassKg);
-console.log("Total Mass (kg):", totalMassKg);
-console.log("Maximum Mass Limit:", maximumMassLimit);
-console.log("Fuel Temperature (Celsius):", fuelTempCelsius);
-console.log("Minimum Fuel Temperature:", minimumFuelTemp);
-console.log("Maximum Fuel Temperature:", maximumFuelTemp);
-console.log("Fuel Level:", fuelLevel);
-console.log("Weather Status:", weatherStatus);
-
-// Prints line before error message || "have a safe trip"
-
-console.log("-------------------------------------------------------------------------");
-
-// Declaring variables not met for launch and providing an error message
-if (!(astronautCount <= 7)){
-   console.log("Crew has exceeded maximum capacity.");
-} 
-if (!(astronautStatus === "ready")) {
-   console.log("Astronauts are not ready.");
-} 
-if (!(totalMassKg < maximumMassLimit)) {
-   console.log("Total mass exceeds maximum limit.");
-}
-if (!(-300 <= fuelTempCelsius))  {
-   console.log("Fuel temperature is too low.");
-}
-if (!(fuelTempCelsius <= -150)) {
-   console.log("Fuel temperature is too high.");
-}
-if (!(fuelLevel === "100%")) {
-   console.log("Fuel level is not full.");
-}
-if (!(weatherStatus === "clear")){
-   console.log("weather is not clear.");
-}
-
-//Prints line below error messages if any exist 
-if (!((astronautCount <= 7) && 
-   (astronautStatus === "ready") && 
-   (totalMassKg < maximumMassLimit) &&
-   (fuelTempCelsius <= -150) && 
-   (fuelTempCelsius >= -300) && 
-   (fuelLevel == "100%") && 
-   (weatherStatus === "clear"))) {
-    console.log("-------------------------------------------------------------------------");
-   }
-
-//Prints final message
-if ((astronautCount <= 7) && 
-   (astronautStatus === "ready") && 
-   (totalMassKg < maximumMassLimit) &&
-   (fuelTempCelsius <= -150) && 
-   (fuelTempCelsius >= -300) && 
-   (fuelLevel === "100%") && 
-   (weatherStatus === "clear")){
-    console.log("Have a safe trip!");
-   } else console.log("DO NOT LAUNCH!!!");
-
-// BEFORE running the code, predict what will be printed to the console by the following statements:
-
-/* if (engineIndicatorLight === "green") {
+if (engineIndicatorLight === "green") {
    console.log("engines have started");
 } else if (engineIndicatorLight === "green blinking") {
    console.log("engines are preparing to start");
 } else {
    console.log("engines are off");
-} */
+}
+
+//PART 3 - Write conditional expressions to satisfy the safety rules
+
+   //Logs if Crew is ready
+
+   if (crewStatus) {
+   console.log("Crew Ready");
+   } else {
+      console.log("Crew Not Ready");
+   }
+   
+   //Logs computer status
+   
+   if (computerStatusCode === 200){
+      console.log("Please stand by. Computer is rebooting.");
+   } else if (computerStatusCode === 400){
+      console.log("Success! Computer online.");
+   } else {
+      console.log("ALERT: Computer offline!");
+   }
+   
+   //Logs Shuttle Speed
+   
+   if (shuttleSpeed > 17500) {
+      console.log("ALERT: Escape velocity reached!");
+    } else if (shuttleSpeed < 8000) {
+      console.log("ALERT: Cannot maintain orbit!");
+    } else {
+      console.log("Stable speed.");
+    }
+   
+//PART 4 - Predict - Yes, they are the same
+
+if (crewStatus && computerStatusCode === 200 && spaceSuitsOn) {
+   console.log("all systems go");
+} else {
+   console.log("WARNING. Not ready");
+}
+
+if (!crewStatus || computerStatusCode !== 200 || !spaceSuitsOn) {
+   console.log("WARNING. Not ready");
+} else {
+   console.log("all systems go");
+}
+
+if (commandOverride) {
+   console.log("Shuttle Clear for Launch!");
+} else if (!commandOverride) {
+   console.log("Shuttle not Clear for Launch!");
+
+
+//PART 5 - Monitor the shuttles fuel status
+   
+//Intialize the variables
+
+let fuelLevel = 21000;
+let engineTemperature = 1200;
+let engineIndicatorLight = "Not red blinking";
+
+if ((fuelLevel < 1000) || (engineTemperature > 3500) || engineIndicatorLight === "red blinking") {
+   console.log("ENGINE FAILURE IMMINENT!"); 
+} else if (fuelLevel <= 5000 || engineTemperature > 2500){
+   console.log("Check fuel level. Engines running hot.");
+} else if (fuelLevel > 5000 && engineTemperature <= 2500){
+   console.log("Fuel level above 25%. Engines good.");
+} else if (fuelLevel > 10000 && engineTemperature <= 2500){
+   console.log("Fuel level above 50%. Engines good.");
+} else if (fuelLevel > 20000 && engineTemperature <= 2500){
+   console.log("Full tank. Engines good.");
+} else {
+   console.log("Fuel and engine status pending...");
+}
+ 
+
+//PART 6 - Final bit of fun
+
+if (engineIndicatorLight === "red blinking") {
+   console.log("ENGINE FAILURE IMMINENT!");
+} else if (!crewStatus) {
+   console.log("Crew status not ready.");
+} else if (computerStatusCode !== 200) {
+   console.log("Computer status code error.");
+} else if (shuttleSpeed < 15000 || shuttleSpeed > 30000) {
+   console.log("Shuttle speed is out of range.");
+} else {
+   console.log("All systems go for launch!");
+}
+} else {
+   console.log("Launch scrubbed");
+}
