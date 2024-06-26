@@ -1,3 +1,4 @@
+//Make a line of length (size)
 function makeLine(size) {
     let line = "";
 
@@ -7,6 +8,7 @@ function makeLine(size) {
     return line;
 }
 
+//Make a square of size (size)
 function makeSquare(size) {
     let square = '';
     for (let i = 0; i < size; i++) {
@@ -18,6 +20,7 @@ function makeSquare(size) {
     return square;
 }
 
+//Make a rectangle of size (width,hieght) 
 function makeRectangle(width,hieght) {
     let rectangle = '';
     for (let i = 0; i < hieght; i++) {
@@ -29,6 +32,7 @@ function makeRectangle(width,hieght) {
     return rectangle;
 }
 
+//Make downstairs of size (size)
 function makeDownwardStairs(height){
     let downStair = "";
     for (i = 0; i < height + 1; i++){
@@ -40,6 +44,7 @@ function makeDownwardStairs(height){
     return downStair;
 }
 
+//Make space+char+space of size (numSpaces,numChars)
 function makeSpaceLine(numSpaces,numChars){
     let spaceLine = "";
 
@@ -58,6 +63,7 @@ function makeSpaceLine(numSpaces,numChars){
         return spaceLine;
     }
   
+//Make isosceles triangle of size (height)
 function makeIsoscelesTriangle(height){
     let isoscelesTriangle = ""
     for (let i = 0; i < height; i++){
@@ -69,4 +75,25 @@ function makeIsoscelesTriangle(height){
     return isoscelesTriangle;
 }
 
-console.log(makeIsoscelesTriangle());
+//Make the bottom of a diamond fo size (height)
+function makeBottomOfDiamond(height){
+    let diamondBottom = ""
+    for (let i = 0; i < height; i++){
+        diamondBottom += makeSpaceLine(i + 1, height*2 - (2 * i) - 3) 
+        if (i < height - 1){
+            diamondBottom += "\n";
+    }
+}
+return diamondBottom;
+
+}
+
+//Make the full diamond of size (height)
+function makeDiamond(height){
+    let Diamond = ""
+    Diamond += makeIsoscelesTriangle(height);
+    Diamond += makeBottomOfDiamond(height);
+    return Diamond;
+}
+
+console.log(makeDiamond(10));
