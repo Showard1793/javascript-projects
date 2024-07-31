@@ -1,6 +1,8 @@
 let str = 'In space, no one can hear you code.';
 let arr = ['B', 'n', 'n', 5];
 
+//test
+
 //1) Use the split method on the string to identify the purpose of the parameter inside the ().
 str.split(" ");
 
