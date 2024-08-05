@@ -2,52 +2,52 @@
 window.addEventListener("load", init);
 
 function init () {
-    const missionAbort = document.getElementById("abortMission");
-    const button = document.getElementById("liftoffButton");
-    const paragraph = document.getElementById("statusReport");
-    const land = document.getElementById("landShuttle")
+    const missionAbortButton = document.getElementById("abortMissionButton");
+    const liftOffButton = document.getElementById("liftoffButton");
+    const statusReport = document.getElementById("statusReport");
+    const landShuttleButton = document.getElementById("landShuttleButton")
 
     // Put your code for the exercises here.
     
-    //configure "take off button"
-    button.addEventListener('click', event => {
-        paragraph.innerHTML = 'Houston! We have liftoff!';
+    //configure "take off liftOffButton"
+    liftOffButton.addEventListener('click', event => {
+        statusReport.innerHTML = 'Houston! We have liftoff!';
      });
 
-     button.addEventListener('mouseover', event => {
-        button.style.backgroundColor = 'lightgreen'
+     liftOffButton.addEventListener('mouseover', event => {
+        liftOffButton.style.backgroundColor = 'lightgreen'
      })
 
-     button.addEventListener('mouseleave', event => {
-        button.style.backgroundColor = ""
+     liftOffButton.addEventListener('mouseleave', event => {
+        liftOffButton.style.backgroundColor = ""
      })
 
-     //configure "Land shuttle" button
-     land.addEventListener('click', event => {
-        paragraph.innerHTML = 'The shuttle is on the ground'
+     //configure "landShuttleButton shuttle" liftOffButton
+     landShuttleButton.addEventListener('click', event => {
+        statusReport.innerHTML = 'The shuttle is on the ground'
      })
 
-     land.addEventListener('mouseover', event => {
-        land.style.backgroundColor = 'lightblue'
+     landShuttleButton.addEventListener('mouseover', event => {
+        landShuttleButton.style.backgroundColor = 'lightblue'
      })
 
-     land.addEventListener('mouseleave', event => {
-        land.style.backgroundColor = ""
+     landShuttleButton.addEventListener('mouseleave', event => {
+        landShuttleButton.style.backgroundColor = ""
      })
 
-     //configure "abort mission" button
-     missionAbort.addEventListener('mouseover', event => {
-        missionAbort.style.backgroundColor = "red"
+     //configure "abort mission" liftOffButton
+     missionAbortButton.addEventListener('mouseover', event => {
+        missionAbortButton.style.backgroundColor = "red"
      })
 
-     missionAbort.addEventListener('mouseleave', event => {
-        missionAbort.style.backgroundColor = ""
+     missionAbortButton.addEventListener('mouseleave', event => {
+        missionAbortButton.style.backgroundColor = ""
      })
 
-     missionAbort.addEventListener('click', event =>{
+     missionAbortButton.addEventListener('click', event =>{
         let answer = window.confirm("Are you sure you want to abort the mission?")
         if (answer === true){
-            paragraph.innerHTML = 'Mission aborted! Space shuttle returning home'
+            statusReport.innerHTML = 'Mission aborted! Space shuttle returning home'
         }
      })
 
