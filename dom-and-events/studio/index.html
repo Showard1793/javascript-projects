@@ -20,74 +20,21 @@
                 <p>Houston, we are ready when you are!</p>
             </div>
             <div id = "shuttleBackground">
-                <img src = "LaunchCode_rocketline_white.png" height = "75" width = "75" id = "rocket"/>
+                <img src = "LaunchCode_rocketline_white.png" height = "75" width = "75" id = "rocket"  style = "position: absolute; bottom: 0px; left: 130px" />
             </div>
             <div class="center-block">
-                <button id="up">Up</button>
-                <script>
-                let upButton = document.getElementById("up")
-                upButton.addEventListener('click', function() {
-                 let str = document.getElementById("rocket").top
-                 let num = parseInt(str, 10)  
-            })
-                </script>
+                <button id="up">Up</button>       
                 <button id="down">Down</button>
-            
-                <button id="right">Right</button>
                 <button id="left">Left</button>
+                <button id="right">Right</button>
                 <h3>Space Shuttle Height</h3>
                 <p id="spaceShuttleHeight">0</p><span> miles</span>
             </div>
         </div>
         <div class="centered">
             <button id = "takeoff">Take off</button>
-            <script>
-                function takeOff() {
-                let response = window.confirm("Confirm that the shuttle is ready for takeoff.");
-                if (response === true) {
-                    document.getElementById("flightStatus").innerHTML = "Shuttle in flight.";
-                    console.log("Shuttle in flight.")
-                    document.getElementById("shuttleBackground").style.backgroundColor = "blue"
-                    document.getElementById("spaceShuttleHeight").innerHTML += 10000
-                } else {
-                    document.getElementById("flightStatus").innerHTML = "Space shuttle ready for takeoff";
-                    console.log("Space shuttle ready for takeoff");
-                }
-            }
-                let button2 = document.getElementById("takeoff");
-                button2.addEventListener('click', takeOff, id = "shuttleBackground2");
-
-                
-            </script>
             <button id = "landing">Land</button>
-            <script>
-
-            let landButton = document.getElementById("landing")
-            landButton.addEventListener('click', function() {
-                window.alert("The shuttle has landed. Landing gear engaged.")
-                document.getElementById("flightStatus").innerHTML = "Shuttle has landed."
-                console.log("The shuttle has landed.")
-                document.getElementById("shuttleBackground").style.backgroundColor = "green"
-                document.getElementById("spaceShuttleHeight").innerHTML = 0
-            })
-            </script>
             <button id = "missionAbort">Abort Mission</button>
-            <script>
-               function abort() {
-                let response = window.confirm("Confirm that you want to abort the mission.");
-                if (response === true) {
-                    document.getElementById("flightStatus").innerHTML = "Mission aborted.";
-                    console.log("Mission aborted! Space shuttle returning home")
-                    document.getElementById("shuttleBackground").style.backgroundColor = "green"
-                    document.getElementById("spaceShuttleHeight").innerHTML = 0
-                } else {
-                    document.getElementById("statusReport").innerHTML = "Contune Mission";
-                    console.log("Contune Mission");
-                }
-            }
-            let button2 = document.getElementById("abortMission");
-            button2.addEventListener('click', abort);
-            </script>
         </div>
     </body>
 </html>
