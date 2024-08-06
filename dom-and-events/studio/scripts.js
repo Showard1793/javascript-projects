@@ -69,6 +69,7 @@ window.addEventListener("load", function(){
     })
 
     //CONTROL BUTTON CONFIG
+
     upButton.addEventListener("click", function(){
         rocketPositionY -= 10 
         rocket.style.marginTop = rocketPositionY + 'px'
@@ -88,5 +89,30 @@ window.addEventListener("load", function(){
         rocketPositionX -= 10 
         rocket.style.marginLeft = rocketPositionX + "px"
     })
+
+    //(OPTIONAL) CONTROL WITH ARROW KEYS CONFIG
+
+    document.addEventListener('keydown', function(event) {
+        switch(event.key) {
+            case "ArrowUp":
+                rocketPositionY -= 10 
+                rocket.style.marginTop = rocketPositionY + 'px'
+                break;
+            case "ArrowDown":
+                rocketPositionY += 10 
+                 rocket.style.marginTop = rocketPositionY + 'px'
+                break;
+            case "ArrowLeft":
+                rocketPositionX -= 10 
+                rocket.style.marginLeft = rocketPositionX + "px"
+                break;
+            case "ArrowRight":
+                rocketPositionX += 10 
+                rocket.style.marginLeft = rocketPositionX + "px"
+                break;
+            }
+        })
+
+
 
 })
