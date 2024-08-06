@@ -19,11 +19,11 @@ window.addEventListener("load", function(){
     const rightButton = document.getElementById("right")
     const leftButton = document.getElementById("left")
 
-    //AREAS
-    const flightStatus = document.getElementById("flightStatus")
+    //BACKGROUND IMAGE
     const shuttleBackground = document.getElementById("shuttleBackground")
 
     //STATS
+    const flightStatus = document.getElementById("flightStatus")
     const spaceShuttleHeight = document.getElementById("spaceShuttleHeight")
 
 
