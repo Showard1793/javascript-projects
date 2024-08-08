@@ -6,9 +6,56 @@
     <style>
       label { display: block; margin-bottom: 7px;}
     </style>
+    <link rel = "stylesheet" href = "style.css">
   </head>
   <body>
     <!-- TODO: add form here -->
-  </body>
+     <h1>Rocket Simulation Form</h1>
+     <br>
+     <form action = "https://handlers.education.launchcode.org/request-parrot" method = "post">
+      <label>Test Name :<input type = "text" name = "testName"></label>
+
+      <label>Test Date :<input type = "date" name = "testDate"></label>
+
+      <label>Rocket Type : 
+        <select name = "rocketType">
+          <option value = "Brant">Brant</option>
+          <option value = "Lynx">Lynx</option>
+          <option value = "Orion">Orion</option>
+          <option value = "Terrier">Terrier</option>
+        </select>
+      </label>
+        
+      <label>Rumber of Rocket Boosters :<input type = "number" name = "boosterCount"></label>
+      <br>
+      <label id = "top-label">Wind Rating : </label>
+        <label><input type = "radio" name = "windRating">No Wind: with value 0 </label>
+        <label><input type = "radio" name = "windRating">Mild: with value 10 </label>
+        <label><input type = "radio" name = "windRating">Strong: with value 20 </label>
+      <br>
+      <label>Use Production Grade Servers :<input type = "checkbox" name = "productionServers"></label>
+      <br>
+      <button>Run Simulation</button>
+     </form>
+     
+     <!--Validate User Input-->
+     <script>
+      document.querySelector('form').addEventListener('submit', function(event) {
+          let formValid = true;
   
+          // Check all input fields
+          document.querySelectorAll('input[required]').forEach(function(input) {
+              if (!input.value) {
+                  formValid = false;
+              }
+          });
+  
+          if (!formValid) {
+              alert('Please fill out all required fields.');
+              event.preventDefault(); // Prevent form from submitting
+          }
+      });
+    </script>
+    
+  </body>
 </html>
