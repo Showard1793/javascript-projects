@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fetch Planets</title>
+    <script>
+        window.addEventListener("load", function() {
+            // Fetch planets JSON
+            fetch("https://handlers.education.launchcode.org/static/planets.json")
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(json) {
+                    console.log(json);
+                    const destination = document.getElementById("destination");
+                    const form = document.querySelector("form");
+
+                    form.addEventListener("submit", function(event) {
+                        event.preventDefault(); // Prevent form submission
+
+                        // Get the selected radio button value
+                        const planetNumber = document.querySelector("input[name='planet-number']:checked");
+                        console.log(planetNumber);
+                        if (planetNumber) {
+                            const index = planetNumber.value;
+                            console.log(index);
+
+                            // Ensure the input is a valid number within the range of the array
+                            if (index >= 0 && index < json.length) {
+                                destination.innerHTML = `
+                                    <div>
+                                        <h3>Planet ${json[index].name}</h3>
+                                        <img src="${json[index].image}" height="250" alt="${json[index].name}">
+                                        <ul>
+                                            <li>Diameter: ${json[index].diameter}</li>
+                                            <li>Distance: ${json[index].distance}</li>
+                                            <li>Moons: ${json[index].moons}</li>
+                                            <li>Star: ${json[index].star}</li>
+                                        </ul>
+                                    </div>
+                                `;
+                            } else {
+                                destination.innerHTML = `<p>Please select a valid planet.</p>`;
+                            }
+                        } else {
+                            destination.innerHTML = `<p>Please select a planet.</p>`;
+                        }
+                    });
+                });
+        });
+    </script>
+</head>
+<body>
+    <h1>Destination</h1>
+    <form>
+        <fieldset>
+            <legend>What planet would you like to visit?</legend>
+            <label>
+                <input type="radio" name="planet-number" value="0"> Tatooine
+            </label><br>
+            <label>
+                <input type="radio" name="planet-number" value="1"> Pern
+            </label><br>
+            <label>
+                <input type="radio" name="planet-number" value="2"> Saturn/Titan
+            </label><br>
+            <label>
+                <input type="radio" name="planet-number" value="3"> Mars
+            </label><br>
+            <label>
+                <input type="radio" name="planet-number" value="4"> K2-18b
+            </label><br>
+            <label>
+                <input type="radio" name="planet-number" value="5"> Jupiter/Europa
+            </label><br>
+        </fieldset>
+        <br>
+        <button type="submit">Let's Go!</button>
+    </form>
+    <div id="destination">
+        <p id="planet-list"></p>
+    </div>
+</body>
+</html>
